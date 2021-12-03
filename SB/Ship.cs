@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace SB
 {
-   public class Ship
+  public abstract class Ship
     {
+        public int Id;
         public string Name;
         public int Alivecells;
         public int X_coord;
         public int Y_coord;
         public bool Rotation;
         public string Picture;
-      public  Ship (string Name, bool Rotation, int X_coord, int Y_coord)   
+      public  Ship (string Name,int Id, bool Rotation, int X_coord, int Y_coord)   
         {
             this.Name = Name;
+            this.Id = Id;
             this.Rotation = Rotation;
             this.X_coord = X_coord;
             this.Y_coord = Y_coord;
