@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Player.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ship.cs" />
@@ -53,7 +55,6 @@
     <Compile Include="Ships\Ship4.cs" />
     <Compile Include="Ships\Ship5.cs" />
     <Compile Include="Ships\Ship22.cs" />
-    <Compile Include="Ship_Features.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

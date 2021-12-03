@@ -4,26 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using SB;
 
 namespace SB
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            ShipFactory Factory1 = new Ship1Factory();
-            ShipFactory Factory2 = new Ship2Factory();
-            ShipFactory Factory3 = new Ship3Factory();
-            ShipFactory Factory4 = new Ship4Factory();
-            ShipFactory Factory5 = new Ship5Factory();
-            ShipFactory Factory22 = new Ship22Factory();
-
+           
+          //  Ship Ship1 = Factory1.Create(1, false, 2, 3);
+            //Table table = new Table(15);
+            Table table1 = Table.QuasiTable();
+            //Table table1 = table.QuasiTable();
+            
+            table1.ShowTable();
+            Console.WriteLine(table1.CheckAlive());
+            Console.ReadLine();
+            //  Ship1.Shoot();
         }
-        public int[,] CreateTable()
+        //public int[,] CreateTable()
+        //{
+        //    int[,] Table = new int[15, 15];
+        //    return Table;
+        //}
+        public static void Battle(Table table)
         {
-            int[,] Table = new int[15, 15];
-            return Table;
+            while (table.CheckAlive())
+            {
+                
+            }
         }
     }
     
