@@ -9,10 +9,11 @@ namespace SB.Ships
 {
     public class Ship1 : Ship
     {
-            public Ship1(string Name,int Id, bool Rotation, int X_coord, int Y_coord) : base("Corvette",Id, Rotation, X_coord, Y_coord)
+        
+            public Ship1(int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord)
             {
                 this.Id = Id;
-                this.Name = Name;
+                Name = "Corvette";
                 this.Rotation = Rotation;
                 this.Y_coord = Y_coord;
                 this.X_coord = X_coord;

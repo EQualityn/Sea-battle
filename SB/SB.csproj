@@ -52,7 +52,7 @@
     <Compile Include="Ships\Ship3.cs" />
     <Compile Include="Ships\Ship4.cs" />
     <Compile Include="Ships\Ship5.cs" />
-    <Compile Include="Ships\Ship6.cs" />
+    <Compile Include="Ships\Ship22.cs" />
     <Compile Include="Ship_Features.cs" />
   </ItemGroup>
   <ItemGroup>

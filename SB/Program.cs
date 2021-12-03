@@ -12,7 +12,12 @@ namespace SB
     {
         static void Main(string[] args)
         {
-            ShipFactory Factory1 = new ShipFactory();
+            ShipFactory Factory1 = new Ship1Factory();
+            ShipFactory Factory2 = new Ship2Factory();
+            ShipFactory Factory3 = new Ship3Factory();
+            ShipFactory Factory4 = new Ship4Factory();
+            ShipFactory Factory5 = new Ship5Factory();
+            ShipFactory Factory22 = new Ship22Factory();
 
         }
         public int[,] CreateTable()

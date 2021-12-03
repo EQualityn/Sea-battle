@@ -15,9 +15,8 @@ namespace SB
         public int Y_coord;
         public bool Rotation;
         public string Picture;
-      public  Ship (string Name,int Id, bool Rotation, int X_coord, int Y_coord)   
+      public  Ship (int Id, bool Rotation, int X_coord, int Y_coord)   
         {
-            this.Name = Name;
             this.Id = Id;
             this.Rotation = Rotation;
             this.X_coord = X_coord;
