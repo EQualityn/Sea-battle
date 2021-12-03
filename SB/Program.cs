@@ -10,7 +10,7 @@ namespace SB
     {
         static void Main(string[] args)
         {
-
+            
         }
         public int[,] CreateTable()
         {
