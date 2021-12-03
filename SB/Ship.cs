@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace SB
 {
-  public abstract class Ship
+    public interface IFeaturable
+    {
+        void Feature(Table table, int x, int y);
+    }
+    public abstract class Ship
     {
         public int Id;
         public string Name;
         public int Alivecells;
         public int X_coord;
         public int Y_coord;
-        public bool Rotation;
+        public bool Rotation = true;
         public string Picture;
       public  Ship (int Id, bool Rotation, int X_coord, int Y_coord)   
         {
@@ -24,6 +28,7 @@ namespace SB
             this.Alivecells = ShipAliveCells(Name);
             this.Picture = ShipPicture(Name);
         }
+      
         public int ShipAliveCells(string Name)
         {
             switch (Name)
@@ -33,7 +38,7 @@ namespace SB
                 case "Cruiser": return 3;
                 case "Destroyer": return 2;
                 case "Corvette": return 1;
-                case "Bunke": return 4;
+                case "Bunker": return 4;
                 default: return 0;
             }
         }
@@ -51,6 +56,19 @@ namespace SB
                 default: return "";
             }
         }
+        public void Shoot(Table table, int x, int y)
+        {
+            while (table.CheckAlive())
+            {
+                if (table[x, y] == 0)
+                    table[x, y] = -1;
+                else
+                    table[x, y] = -2;
+            }
+            
+        }
+        //public abstract void Feature(Table table, int x, int y);
+
     }
 
     
