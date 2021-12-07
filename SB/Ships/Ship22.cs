@@ -13,7 +13,7 @@ namespace SB.Ships
         }
         public void Feature(Table table, int x, int y)
         {
-            Shoot(table, x, y);
+            table.Shoot(x, y);
         }
     }
 }

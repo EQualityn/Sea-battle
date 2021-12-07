@@ -59,19 +59,6 @@ namespace SB
                 default: return "";
             }
         }
-        public void Shoot(Table table, int x, int y)
-        {
-            //_battleField.Shot(x,y);
-
-            while (table.CheckAlive())
-            {
-                if (table[x, y] == 0)
-                    table[x, y] = -1;
-                else
-                    table[x, y] = -2;
-            }
-            
-        }
         //public abstract void Feature(Table table, int x, int y);
 
     }

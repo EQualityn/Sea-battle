@@ -13,13 +13,12 @@ namespace SB
     class Program
     {
 
-       
-
-
         static void Main(string[] args)
         {
             Table table = new Table(15);
             table.AutoDisposal();
+            table.Shoot(10, 10);
+         
             Console.ReadLine();
         }
 
