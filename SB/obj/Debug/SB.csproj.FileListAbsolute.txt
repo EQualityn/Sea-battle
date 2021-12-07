@@ -15,3 +15,6 @@ C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\SB.pdb
 C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.exe
 C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.pdb
 >>>>>>> 0bdd40aec9a7933f7ffce1fc39e7b12035b5ac78
+D:\TP\Корабли\Sea-battle\SB\bin\Debug\Newtonsoft.Json.dll
+D:\TP\Корабли\Sea-battle\SB\bin\Debug\Newtonsoft.Json.xml
+D:\TP\Корабли\Sea-battle\SB\obj\Debug\SB.csproj.CopyComplete

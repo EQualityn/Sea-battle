@@ -19,14 +19,17 @@ namespace SB
         public int Y_coord;
         public bool Rotation = true;
         public string Picture;
-      public  Ship (int Id, bool Rotation, int X_coord, int Y_coord)   
+
+        //private IBattleField _battleField;
+      public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   
         {
-            this.Id = Id;
-            this.Rotation = Rotation;
-            this.X_coord = X_coord;
-            this.Y_coord = Y_coord;
-            this.Alivecells = ShipAliveCells(Name);
-            this.Picture = ShipPicture(Name);
+            this.Id = id;
+            this.Rotation = rotation;
+            this.X_coord = x_coord;
+            this.Y_coord = y_coord;
+            this.Name = name;
+            this.Alivecells = ShipAliveCells(name);
+            this.Picture = ShipPicture(name);
         }
       
         public int ShipAliveCells(string Name)
@@ -58,6 +61,8 @@ namespace SB
         }
         public void Shoot(Table table, int x, int y)
         {
+            //_battleField.Shot(x,y);
+
             while (table.CheckAlive())
             {
                 if (table[x, y] == 0)

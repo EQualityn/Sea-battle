@@ -9,15 +9,11 @@ namespace SB.Ships
 {
     public class Ship1 : Ship, IFeaturable
     {
-        
-            public Ship1(int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord)
-            {
-                this.Id = Id;
-                Name = "Corvette";
-                this.Rotation = Rotation;
-                this.Y_coord = Y_coord;
-                this.X_coord = X_coord;
-            }
+
+        public Ship1(int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord, "Corvette")
+        {
+
+        }
         public void Feature(Table table, int x, int y)
         {
             if (table[x, y] == 0)
