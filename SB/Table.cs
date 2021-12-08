@@ -60,7 +60,17 @@ namespace SB
                 }
 
             }
-            return true;
+            return false;
+        }
+        public int HealthOfFleet()
+        {
+            int health=0;
+            //foreach (Ship ship in ships)
+            //{
+            //    health += ship.Alivecells;
+            //}
+
+            return health = ships.Select(ship=> ship.Alivecells).Sum();
         }
         public void AutoDisposal()
         {
@@ -289,25 +299,22 @@ namespace SB
         public void Shoot(int x, int y)
         {
 
-            if (table[x, y] > 0)
+            if (table[y, x] > 0)
             {
                 foreach (Ship ship in ships)
                 {
-                    if (ship.X_coord == x && ship.Y_coord == y)
+                    if (ship.Id==table[y,x])
                     {
                         table[y, x] = -1;
                         ship.Alivecells--;
                     }
                 }
             }
-            else if (table[x, y] == 0)
+             if (table[y, x] == 0)
             {
                 table[y, x] = -2;
             }
-            else
-            {
-                // попадаем в битое поле
-            }
+           
 
         }
 

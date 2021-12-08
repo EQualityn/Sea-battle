@@ -15,11 +15,11 @@ namespace SB
 
         static void Main(string[] args)
         {
-            Table table = new Table(15);
-            table.AutoDisposal();
-            table.Shoot(10, 10);
-         
+            Battle battle = new Battle();
+            battle.BattleInit();
+            battle.BattleStart();
             Console.ReadLine();
+            
         }
 
     }

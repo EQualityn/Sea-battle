@@ -7,3 +7,13 @@ D:\TP\Корабли\Sea-battle\SB\obj\Debug\SB.csproj.AssemblyReference.cache
 D:\TP\Корабли\Sea-battle\SB\obj\Debug\SB.csproj.CoreCompileInputs.cache
 D:\TP\Корабли\Sea-battle\SB\obj\Debug\SB.exe
 D:\TP\Корабли\Sea-battle\SB\obj\Debug\SB.pdb
+C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.csproj.AssemblyReference.cache
+C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.csproj.CoreCompileInputs.cache
+C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.exe
+C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.pdb
+C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\SB.exe.config
+C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\SB.exe
+C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\SB.pdb
+C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\Newtonsoft.Json.dll
+C:\EDUCATION\TestSB\Sea-battle\SB\bin\Debug\Newtonsoft.Json.xml
+C:\EDUCATION\TestSB\Sea-battle\SB\obj\Debug\SB.csproj.CopyComplete

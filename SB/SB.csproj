@@ -47,7 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player.cs" />
+    <Compile Include="Interfaces\IShootable.cs" />
+    <Compile Include="Players\AIEngine.cs" />
+    <Compile Include="Players\BasePlayer.cs" />
+    <Compile Include="Battle.cs" />
+    <Compile Include="Interfaces\IGetTableable.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
