@@ -6,24 +6,22 @@ using System.Threading.Tasks;
 
 namespace SB
 {
-    public class Player : BasePlayer, IGetTableable, IShootable
+    public class Player : BasePlayer
     {
-       public Table PlayerTable = new Table(15);
+ 
       
         public Player()
         {
         }
 
-        public Table GetTable()
+       
+        public override void ShootStrategy(string difficultyMode)
         {
-           return PlayerTable;
-        }
-        public void ShootStrategy()
-        {
-            //int x = Convert.ToInt32(Console.ReadLine());
-            //int y = Convert.ToInt32(Console.ReadLine());
-            //PlayerTable.Shoot(x, y); // or y,x?
-            PlayerTable.ShowTable();
+            Console.WriteLine("Enter x and y to shoot at");
+            int x = Convert.ToInt32(Console.ReadLine());
+            int y = Convert.ToInt32(Console.ReadLine());
+            table.Shoot(x, y); // or y,x?
+            
         }
         //List<Ship> Ships = new List<Ship>();
         //public void ArmWithShips(List<Ship> Ships)

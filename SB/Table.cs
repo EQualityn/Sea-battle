@@ -295,10 +295,12 @@ namespace SB
             Zone(Id, Alivecells, ref rotate, field, x, y);
 
         }
+        public bool isHit = false;
+        public bool isSunk = true;
 
         public void Shoot(int x, int y)
         {
-
+            //try catch if beyond bounds
             if (table[y, x] > 0)
             {
                 foreach (Ship ship in ships)
@@ -307,14 +309,21 @@ namespace SB
                     {
                         table[y, x] = -1;
                         ship.Alivecells--;
+                        isHit = true;
                     }
                 }
             }
+
              if (table[y, x] == 0)
             {
                 table[y, x] = -2;
+                isHit = false;
             }
-           
+             
+            if (table[y, x] < 0)
+            {
+                //Shoot()
+            }
 
         }
 

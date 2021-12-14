@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SB
 {
-    public class BasePlayer : IGetTableable
+   abstract public class BasePlayer
     {
         public Table table = new Table(15);
-
+        public int bombs = 0;
         public BasePlayer()
         {
         }
@@ -18,7 +18,14 @@ namespace SB
         {
             return table;
         }
-
+        public abstract void ShootStrategy(string difficulty);
+        
+            
+            //int x = Convert.ToInt32(Console.ReadLine());
+            //int y = Convert.ToInt32(Console.ReadLine());
+            //table.Shoot(x, y); // or y,x?
+            //table.ShowTable();
+        
         //List<Ship> Ships = new List<Ship>();
         //public void ArmWithShips(List<Ship> Ships)
         //{
@@ -30,6 +37,6 @@ namespace SB
         //    ShipFactory Factory22 = new Ship22Factory();
 
         //}
-
+        
     }
 }
