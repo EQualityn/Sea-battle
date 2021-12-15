@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace SB
 {
    public class AIEngine : BasePlayer
-    { 
+    {
+        public static bool lastSuccessShot = false;
         public AIEngine()
         {
         }
@@ -18,42 +19,46 @@ namespace SB
             switch (difficulty){
                 case "easy":
                     
-                   int x_es = rnd.Next(0, 14);
-                   int y_es = rnd.Next(0, 14);
-                    table.Shoot(y_es,x_es);
+                   int x = rnd.Next(0, 14);
+                   int y = rnd.Next(0, 14);
+                    table.Shoot(x,y);
                     break;
 
                 case "medium":
+                   // bool isHit = false;
                     // table isSunk = true;
                     // isSunk = false if ship.alivecells!=0;
                     // while isSunk (Shoot.Rand)
                     // while !isSunk =>ShootClever(Shoot while isHit);
-                    int x_m = rnd.Next(0, 14);
-                    int y_m = rnd.Next(0, 14);
+                    x = rnd.Next(0, 14);
+                    y = rnd.Next(0, 14);
                     
-                    table.Shoot(x_m, y_m);
-                    if (table.isHit)
+                    table.Shoot(x, y);
+                    //
+                    if (lastSuccessShot)
                         // switch rotation
                     {
-                        int x_hit = x_m;
-                        int y_hit = y_m;
+                        int x_hit = x;
+                        int y_hit = y;
                         if (x_hit < 14)
                         {
-                            table.Shoot(x_m + 1, y_m);
+                            table.Shoot(x + 1, y);
                         }
                         if (y_hit < 14)
                         {
-                            table.Shoot(x_m, y_m+1);
+                            table.Shoot(x, y+1);
                         }
                         if (y_hit > 0)
                         {
-                            table.Shoot(x_m-1, y_m);
+                            table.Shoot(x-1, y);
                         }
                         if (x_hit > 0)
                         {
-                            table.Shoot(x_m, y_m-1);
+                            table.Shoot(x, y-1);
                         }
                     }
+                   // if (isSunk)
+                  
                    // if ()
                     break;
 

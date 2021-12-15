@@ -148,7 +148,8 @@ namespace SB
                 rotate = rnd.Next(2) == 0 ? false : true;
             }
         }
-
+        //Marking hit fields around if ship set
+        
         void Zone(int Id, int Alivecells, ref bool rotate, int[,] field, int x, int y)
         {
             if (Id == 14)
@@ -295,11 +296,19 @@ namespace SB
             Zone(Id, Alivecells, ref rotate, field, x, y);
 
         }
-        public bool isHit = false;
-        public bool isSunk = true;
-
+        // public bool isHit = false;
+        //  public bool isSunk = true;
+        public void HitCheck(int x, int y)
+        {
+            Ship hitShip = ships.SingleOrDefault(ship => ship.Id == table[y, x]);
+            if (table[y, x] > 0)
+            {
+               
+            }
+        }
         public void Shoot(int x, int y)
         {
+            shootagain:
             //try catch if beyond bounds
             if (table[y, x] > 0)
             {
@@ -309,20 +318,30 @@ namespace SB
                     {
                         table[y, x] = -1;
                         ship.Alivecells--;
-                        isHit = true;
+                        ship.isHit = true;
+                        AIEngine.lastSuccessShot = true;
+
+                        if (ship.Alivecells == 0)
+                        {
+                            ship.isSunk = true;
+                        }
                     }
+                    
                 }
             }
 
              if (table[y, x] == 0)
             {
                 table[y, x] = -2;
-                isHit = false;
+                AIEngine.lastSuccessShot = false;
             }
              
             if (table[y, x] < 0)
             {
-                //Shoot()
+                Random rnd = new Random();
+                x = rnd.Next(0, 14);
+                y = rnd.Next(0, 14);
+                goto shootagain;
             }
 
         }
