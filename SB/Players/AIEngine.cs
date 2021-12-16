@@ -8,7 +8,6 @@ namespace SB
 {
    public class AIEngine : BasePlayer
     {
-        public static bool lastSuccessShot = false;
         public AIEngine()
         {
         }
@@ -16,27 +15,32 @@ namespace SB
         public override void ShootStrategy(string difficulty)
         {   
             Random rnd = new Random();
+            int x, y;
             switch (difficulty){
                 case "easy":
-                    
-                   int x = rnd.Next(0, 14);
-                   int y = rnd.Next(0, 14);
-                    table.Shoot(x,y);
+                    do
+                    {
+                        x = rnd.Next(0, 14);
+                        y = rnd.Next(0, 14);
+                        table.Shoot(x, y);
+                        Console.WriteLine($"Engine shot at {x}, {y}");
+                        Console.WriteLine();
+                        table.ShowTable();
+                        Console.WriteLine();
+                    } while (table.lastSuccessShot);
                     break;
-
                 case "medium":
                    // bool isHit = false;
                     // table isSunk = true;
                     // isSunk = false if ship.alivecells!=0;
                     // while isSunk (Shoot.Rand)
                     // while !isSunk =>ShootClever(Shoot while isHit);
+
                     x = rnd.Next(0, 14);
                     y = rnd.Next(0, 14);
-                    
-                    table.Shoot(x, y);
-                    //
-                    if (lastSuccessShot)
-                        // switch rotation
+
+                    if (table.lastSuccessShot)
+                    // switch rotation
                     {
                         int x_hit = x;
                         int y_hit = y;
@@ -46,20 +50,19 @@ namespace SB
                         }
                         if (y_hit < 14)
                         {
-                            table.Shoot(x, y+1);
+                            table.Shoot(x, y + 1);
                         }
                         if (y_hit > 0)
                         {
-                            table.Shoot(x-1, y);
+                            table.Shoot(x - 1, y);
                         }
                         if (x_hit > 0)
                         {
-                            table.Shoot(x, y-1);
+                            table.Shoot(x, y - 1);
                         }
                     }
-                   // if (isSunk)
-                  
-                   // if ()
+
+                    table.Shoot(x, y);
                     break;
 
                 case "hard":

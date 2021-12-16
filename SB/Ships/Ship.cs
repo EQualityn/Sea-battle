@@ -21,6 +21,7 @@ namespace SB
         public string Picture;
         public bool isHit = false;
         public bool isSunk;
+        public int Cells;
         //private IBattleField _battleField;
       public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   
         {
@@ -31,6 +32,7 @@ namespace SB
             this.Name = name;
             this.Alivecells = ShipAliveCells(name);
             this.Picture = ShipPicture(name);
+            this.Cells = ShipAliveCells(name);
         }
       
         public int ShipAliveCells(string Name)

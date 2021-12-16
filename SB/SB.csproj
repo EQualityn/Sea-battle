@@ -47,11 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IShootable.cs" />
     <Compile Include="Players\AIEngine.cs" />
     <Compile Include="Players\BasePlayer.cs" />
     <Compile Include="Battle.cs" />
-    <Compile Include="Interfaces\IGetTableable.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="Program.cs" />
@@ -69,6 +67,8 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

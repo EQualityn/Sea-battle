@@ -15,6 +15,7 @@ namespace SB
         public int n;
         public int[,] table;
         List<Ship> ships = new List<Ship>();
+        public bool lastSuccessShot = true;
         // Создаем конструкторы матрицы
 
 
@@ -127,7 +128,7 @@ namespace SB
             {
                 for (int j = 0; j < 15; j++)
                 {
-                    if (table[i, j] == -1)
+                    if (table[i, j] == -2)
                     {
                         table[i, j] = 0;
                     }
@@ -157,8 +158,8 @@ namespace SB
                 for (int dx = -1; dx <= Alivecells / 2; dx++)
                     for (int dy = -1; dy <= Alivecells / 2; dy++)
                         if ((x + dx >= 0) && (x + dx < 15) && (y + dy >= 0) && (y + dy < 15))
-                            if (field[x + dx, y + dy] != Id)
-                                field[x + dx, y + dy] = -1;
+                            if (field[x + dx, y + dy] != Id && field[x+dx,y+dy] != -1)
+                                field[x + dx, y + dy] = -2;
             }
             else
             {
@@ -167,16 +168,16 @@ namespace SB
                     for (int dx = -1; dx <= 1; dx++)
                         for (int dy = -1; dy <= Alivecells; dy++)
                             if ((x + dx >= 0) && (x + dx < 15) && (y + dy >= 0) && (y + dy < 15))
-                                if (field[x + dx, y + dy] != Id)
-                                    field[x + dx, y + dy] = -1;
+                                if (field[x + dx, y + dy] != Id && field[x + dx, y + dy] != -1)
+                                    field[x + dx, y + dy] = -2;
                 }
                 else
                 {
                     for (int dx = -1; dx <= Alivecells; dx++)
                         for (int dy = -1; dy <= 1; dy++)
                             if ((x + dx >= 0) && (x + dx < 15) && (y + dy >= 0) && (y + dy < 15))
-                                if (field[x + dx, y + dy] != Id)
-                                    field[x + dx, y + dy] = -1;
+                                if (field[x + dx, y + dy] != Id && field[x + dx, y + dy] != -1)
+                                    field[x + dx, y + dy] = -2;
                 }
             }
         }
@@ -197,7 +198,7 @@ namespace SB
                 ship.Rotation = rotate;
                 if (Id == 14)
                 {
-                    if ((x >= 0) && (x < 15) && (y >= 0) && (y < 15) && field[x, y] != -1)
+                    if ((x >= 0) && (x < 15) && (y >= 0) && (y < 15) && field[x, y] != -2)
                     {
                         for (int i = 0; i < 2; i++)
                         {
@@ -210,7 +211,7 @@ namespace SB
                                         goto pook;
                                     }
                                 }
-                                if (field[x + i, y + j] == -1)
+                                if (field[x + i, y + j] == -2)
                                 {
                                     goto pook;
                                 }
@@ -224,14 +225,14 @@ namespace SB
                     }
                     goto pook;
                 }
-                else if ((x >= 0) && (x < 15) && (y >= 0) && (y < 15) && field[x, y] != -1)
+                else if ((x >= 0) && (x < 15) && (y >= 0) && (y < 15) && field[x, y] != -2)
                 {
 
-                    if (rotate && (y + Alivecells - 1 >= 0) && (y + Alivecells - 1 < 15) && field[x, y + Alivecells - 1] != -1)
+                    if (rotate && (y + Alivecells - 1 >= 0) && (y + Alivecells - 1 < 15) && field[x, y + Alivecells - 1] != -2)
                     {
                         for (int i = 0; i <= Alivecells - 1; i++)
                         {
-                            if (field[x, y + i] == -1)
+                            if (field[x, y + i] == -2)
                             {
                                 goto pook;
                             }
@@ -246,11 +247,11 @@ namespace SB
 
                         flag = false;
                     }
-                    if (!rotate && (x + Alivecells - 1 >= 0) && (x + Alivecells - 1 < 15) && field[x + Alivecells - 1, y] != -1)
+                    if (!rotate && (x + Alivecells - 1 >= 0) && (x + Alivecells - 1 < 15) && field[x + Alivecells - 1, y] != -2)
                     {
                         for (int i = 0; i <= Alivecells - 1; i++)
                         {
-                            if (field[x + i, y] == -1)
+                            if (field[x + i, y] == -2)
                             {
                                 goto pook;
                             }
@@ -308,42 +309,40 @@ namespace SB
         }
         public void Shoot(int x, int y)
         {
-            shootagain:
             //try catch if beyond bounds
             if (table[y, x] > 0)
             {
                 foreach (Ship ship in ships)
                 {
-                    if (ship.Id==table[y,x])
+                    if (ship.Id == table[y,x])
                     {
                         table[y, x] = -1;
                         ship.Alivecells--;
-                        ship.isHit = true;
-                        AIEngine.lastSuccessShot = true;
+                        //ship.isHit = true;
+                        lastSuccessShot = true;
 
                         if (ship.Alivecells == 0)
                         {
                             ship.isSunk = true;
+                            Zone(ship.Id, ship.Cells, ref ship.Rotation, table , ship.X_coord, ship.Y_coord);
+                            break;
                         }
                     }
                     
                 }
             }
+            if (table[y, x] < 0 )
+            {
+                lastSuccessShot = true;
+                //y = 14;
+            }
 
-             if (table[y, x] == 0)
+            if (table[y, x] == 0)
             {
                 table[y, x] = -2;
-                AIEngine.lastSuccessShot = false;
+                lastSuccessShot = false;
             }
-             
-            if (table[y, x] < 0)
-            {
-                Random rnd = new Random();
-                x = rnd.Next(0, 14);
-                y = rnd.Next(0, 14);
-                goto shootagain;
-            }
-
+         
         }
 
     }

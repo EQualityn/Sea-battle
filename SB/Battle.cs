@@ -41,32 +41,33 @@ namespace SB
               
             //    Console.WriteLine();
             //    Console.WriteLine();
-                Console.WriteLine("Engine's(Player) table");
+                Console.WriteLine("Player table");
                 engine.table.ShowTable();
-            Console.WriteLine("Player's(Engine) table");
+            Console.WriteLine("Engine table");
                player.table.ShowTable();
             //Console.WriteLine();
             //Console.WriteLine();
             //while (player.PlayerTable.CheckAlive() && engine.EngineTable.CheckAlive())
             //{
             string difficultyMode = string.Empty;
-            difficultyMode = "easy";
+            difficultyMode = "easy"; // easy
             Console.WriteLine("Enter amount of turns");
             int turns = Convert.ToInt32(Console.ReadLine()); 
             while (Convert.ToBoolean(turns))
             {
-
+                //фича
                 player.ShootStrategy("manual");
                 engine.ShootStrategy(difficultyMode);
-                Console.WriteLine("Player table");
-                engine.table.ShowTable();
+                //Console.WriteLine("Player table");
+                //engine.table.ShowTable();
                 Console.WriteLine();
                 Console.WriteLine();
-                Console.WriteLine("Engine table");
-                player.table.ShowTable();
+                //Console.WriteLine("Engine table");
+                //player.table.ShowTable();
                 Console.WriteLine();
                 Console.WriteLine();
                 turns--;
+                
             }
 
             //}
