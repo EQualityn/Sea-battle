@@ -17,8 +17,11 @@ namespace SB
        
         public override void ShootStrategy(string difficultyMode)
         {
+          
             do
             {
+                int key = int.Parse(Console.ReadLine());
+                table.ChooseFeature(key);
                 Console.WriteLine("Enter x and y to shoot at");
                 var coords = Console.ReadLine().Split();
                 table.Shoot(int.Parse(coords[0]), int.Parse(coords[1])); // or y,x?

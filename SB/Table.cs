@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SB.Ships;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,7 @@ namespace SB
         List<Ship> ships = new List<Ship>();
         public bool lastSuccessShot = true;
         // Создаем конструкторы матрицы
-
+        
 
 
         // Задаем аксессоры для работы с полями вне класса Matrix
@@ -307,6 +308,17 @@ namespace SB
                
             }
         }
+
+        public void ChooseFeature(int key)
+        {
+            Ship featurableShip = ships.FirstOrDefault(ship => ship.Id == key);
+            if (featurableShip is Ship1)
+            {
+                featurableShip.Feature();
+            }
+           
+        }
+
         public void Shoot(int x, int y)
         {
             //try catch if beyond bounds

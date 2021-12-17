@@ -62,6 +62,8 @@ namespace SB
                 default: return "";
             }
         }
+
+        
         //public abstract void Feature(Table table, int x, int y);
 
     }

@@ -10,6 +10,7 @@ namespace SB
     {
         Player player = new Player();
         AIEngine engine = new AIEngine();
+
         //public Player player = new Player();
         //public AIEngine engine = new AIEngine();
        public Battle() { }
@@ -56,6 +57,7 @@ namespace SB
             while (Convert.ToBoolean(turns))
             {
                 //фича
+
                 player.ShootStrategy("manual");
                 engine.ShootStrategy(difficultyMode);
                 //Console.WriteLine("Player table");
