@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SB.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,15 @@ namespace SB.Ships
         public Ship5(int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord,"Carrier")
         {
         }
-        public void Feature(Table table, int x, int y)
-        {
+        public void Feature(Table table)
+        { 
+            Console.WriteLine("Line to shoot at:");
+            int line = int.Parse(Console.ReadLine());
+
             for (int i = 0; i < 15; i++)
             {
-                table[x, i] = 1;
+                table.Shoot(i, line);
+                featureRealised = true;
             }
         }
     }

@@ -14,12 +14,13 @@ namespace SB
         {
         }
 
-       
-        public override void ShootStrategy(string difficultyMode)
+       //ShootStrategy = Turn()
+        public override void Turn(string difficultyMode)
         {
-          
+
             do
             {
+                Console.WriteLine("Enter key for player's feature");
                 int key = int.Parse(Console.ReadLine());
                 table.ChooseFeature(key);
                 Console.WriteLine("Enter x and y to shoot at");
@@ -29,21 +30,11 @@ namespace SB
                 Console.WriteLine();
                 table.ShowTable();
                 Console.WriteLine();
-            } while (table.lastSuccessShot);
+            } while (table.shootAgain);
 
 
         }
-        //List<Ship> Ships = new List<Ship>();
-        //public void ArmWithShips(List<Ship> Ships)
-        //{
-        //    ShipFactory Factory1 = new Ship1Factory();
-        //    ShipFactory Factory2 = new Ship2Factory();
-        //    ShipFactory Factory3 = new Ship3Factory();
-        //    ShipFactory Factory4 = new Ship4Factory();
-        //    ShipFactory Factory5 = new Ship5Factory();
-        //    ShipFactory Factory22 = new Ship22Factory();
-
-        //}
+       
 
     }
 }

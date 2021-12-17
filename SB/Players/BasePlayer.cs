@@ -18,7 +18,7 @@ namespace SB
         {
             return table;
         }
-        public abstract void ShootStrategy(string difficulty);
+        public abstract void Turn(string difficulty);
         
             
             //int x = Convert.ToInt32(Console.ReadLine());

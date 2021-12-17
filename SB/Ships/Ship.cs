@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SB.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace SB
 {
-    public interface IFeaturable
-    {
-        void Feature(Table table, int x, int y);
-    }
+    
     public abstract class Ship
     {
         public int Id;
@@ -22,7 +20,7 @@ namespace SB
         public bool isHit = false;
         public bool isSunk;
         public int Cells;
-        //private IBattleField _battleField;
+        public bool featureRealised = false;
       public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   
         {
             this.Id = id;

@@ -2,8 +2,10 @@
 using SB.Ships;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,8 +17,9 @@ namespace SB
         // Скрытые поля
         public int n;
         public int[,] table;
-        List<Ship> ships = new List<Ship>();
-        public bool lastSuccessShot = true;
+        public List<Ship> ships = new List<Ship>();
+        public bool shootAgain = false;
+        public bool t = true;
         // Создаем конструкторы матрицы
         
 
@@ -311,13 +314,49 @@ namespace SB
 
         public void ChooseFeature(int key)
         {
-            Ship featurableShip = ships.FirstOrDefault(ship => ship.Id == key);
-            if (featurableShip is Ship1)
+           
+            var frame = new StackFrame(1);
+            if (frame.GetMethod().DeclaringType.Name=="Player")
             {
-                featurableShip.Feature();
+
+                var featurableShip = ships.FirstOrDefault(ship => ship.Id == key);
+                //ships.FirstOrDefault(ship => ship.Id == key).Feature();
+
+
+                if (featurableShip is Ship22)
+                {
+                    ((Ship22)featurableShip).Feature(this);
+                   
+                }
+                if (featurableShip is Ship5)
+                {
+                    ((Ship5)featurableShip).Feature(this);
+
+                }
+
+            }
+            else
+            {
+                var featurableShip = ships.FirstOrDefault(ship => ship.Id == key);
+                //ships.FirstOrDefault(ship => ship.Id == key).Feature();
+
+
+                if (featurableShip is Ship22)
+                {
+                    ((Ship22)featurableShip).Feature(this);
+
+                }
+                if (featurableShip is Ship5)
+                {
+                    ((Ship5)featurableShip).Feature(this);
+
+                }
             }
            
+           
         }
+       
+       
 
         public void Shoot(int x, int y)
         {
@@ -331,11 +370,12 @@ namespace SB
                         table[y, x] = -1;
                         ship.Alivecells--;
                         //ship.isHit = true;
-                        lastSuccessShot = true;
+                        shootAgain = true;
 
                         if (ship.Alivecells == 0)
                         {
                             ship.isSunk = true;
+                            t = true;
                             Zone(ship.Id, ship.Cells, ref ship.Rotation, table , ship.X_coord, ship.Y_coord);
                             break;
                         }
@@ -345,14 +385,14 @@ namespace SB
             }
             if (table[y, x] < 0 )
             {
-                lastSuccessShot = true;
+                shootAgain = true;
                 //y = 14;
             }
 
             if (table[y, x] == 0)
             {
                 table[y, x] = -2;
-                lastSuccessShot = false;
+                shootAgain = false;
             }
          
         }
