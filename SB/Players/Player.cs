@@ -17,11 +17,21 @@ namespace SB
        
         public override void ShootStrategy(string difficultyMode)
         {
-            Console.WriteLine("Enter x and y to shoot at");
-            int x = Convert.ToInt32(Console.ReadLine());
-            int y = Convert.ToInt32(Console.ReadLine());
-            table.Shoot(x, y); // or y,x?
-            
+          
+            do
+            {
+                int key = int.Parse(Console.ReadLine());
+                table.ChooseFeature(key);
+                Console.WriteLine("Enter x and y to shoot at");
+                var coords = Console.ReadLine().Split();
+                table.Shoot(int.Parse(coords[0]), int.Parse(coords[1])); // or y,x?
+                Console.WriteLine($"Player shot at {coords[0]}, {coords[1]}");
+                Console.WriteLine();
+                table.ShowTable();
+                Console.WriteLine();
+            } while (table.lastSuccessShot);
+
+
         }
         //List<Ship> Ships = new List<Ship>();
         //public void ArmWithShips(List<Ship> Ships)

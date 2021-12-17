@@ -19,7 +19,9 @@ namespace SB
         public int Y_coord;
         public bool Rotation = true;
         public string Picture;
-
+        public bool isHit = false;
+        public bool isSunk;
+        public int Cells;
         //private IBattleField _battleField;
       public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   
         {
@@ -30,6 +32,7 @@ namespace SB
             this.Name = name;
             this.Alivecells = ShipAliveCells(name);
             this.Picture = ShipPicture(name);
+            this.Cells = ShipAliveCells(name);
         }
       
         public int ShipAliveCells(string Name)
@@ -59,6 +62,8 @@ namespace SB
                 default: return "";
             }
         }
+
+        
         //public abstract void Feature(Table table, int x, int y);
 
     }
