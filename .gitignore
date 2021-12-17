@@ -15,6 +15,9 @@
 # Compiled Dynamic libraries
 *.so
 *.suo
+obj/Debug/
+bin/Debug/
+v16/
 *.dylib
 *.dll
 
