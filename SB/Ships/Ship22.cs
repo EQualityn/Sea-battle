@@ -12,11 +12,10 @@ namespace SB.Ships
         public Ship22( int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord, "Bunker")
         {
         }
-        public void Feature(Table table)
+        public void Feature(Table table, int x, int y)
         {
-            Console.WriteLine("Double shot x and y:");
-            string[] coords = Console.ReadLine().Split();
-            table.Shoot(int.Parse(coords[0]), int.Parse(coords[1]));
+            
+            table.Shoot(x, y);
             featureRealised = true;
         }
     }

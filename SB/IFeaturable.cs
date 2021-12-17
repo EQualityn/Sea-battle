@@ -8,6 +8,6 @@ namespace SB.Interfaces
 {
     public interface IFeaturable
     {
-        void Feature(Table table);
+        void Feature(Table table, int x, int y);
     }
 }

@@ -15,16 +15,15 @@ namespace SB.Ships
         {
 
         }
-        public void Feature(Table table)
+        public void Feature(Table table, int x, int y)
         {
-            Console.WriteLine("Move to field:");
-            string[] coords = Console.ReadLine().Split();
-            if (table[int.Parse(coords[0]), int.Parse(coords[1])] == 0)
+            
+            if (table[x,y] == 0)
             {
                 table[this.X_coord, this.Y_coord] = 0;
-                table[int.Parse(coords[0]), int.Parse(coords[1])] = this.Id;
-                this.X_coord = int.Parse(coords[0]);
-                this.Y_coord = int.Parse(coords[0]);
+                table[x,y] = this.Id;
+                this.X_coord = y;
+                this.Y_coord = x;
             }
             else
             {

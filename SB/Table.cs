@@ -325,13 +325,16 @@ namespace SB
 
                 if (featurableShip is Ship22)
                 {
-                    ((Ship22)featurableShip).Feature(this);
+                    Console.WriteLine("Double shot x and y:");
+                    string[] coords = Console.ReadLine().Split();
+                    ((Ship22)featurableShip).Feature(this, int.Parse(coords[0]), int.Parse(coords[1]));
                    
                 }
                 if (featurableShip is Ship5)
                 {
-                    ((Ship5)featurableShip).Feature(this);
-
+                    Console.WriteLine("Line to shoot at:");
+                    int line = int.Parse(Console.ReadLine());
+                    ((Ship5)featurableShip).Feature(this, line, 1);
                 }
 
             }
@@ -339,16 +342,20 @@ namespace SB
             {
                 var featurableShip = ships.FirstOrDefault(ship => ship.Id == key);
                 //ships.FirstOrDefault(ship => ship.Id == key).Feature();
-
+                Random rnd = new Random();
 
                 if (featurableShip is Ship22)
                 {
-                    ((Ship22)featurableShip).Feature(this);
+                    
+                    int x = rnd.Next(0, 14);
+                    int y = rnd.Next(0, 14);
+                    ((Ship22)featurableShip).Feature(this, x,y);
 
                 }
                 if (featurableShip is Ship5)
                 {
-                    ((Ship5)featurableShip).Feature(this);
+                    int line = rnd.Next(0, 14);
+                    ((Ship5)featurableShip).Feature(this, line,1);
 
                 }
             }
@@ -371,6 +378,7 @@ namespace SB
                         ship.Alivecells--;
                         //ship.isHit = true;
                         shootAgain = true;
+                        t = false;
 
                         if (ship.Alivecells == 0)
                         {

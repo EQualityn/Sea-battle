@@ -12,10 +12,9 @@ namespace SB.Ships
         public Ship5(int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord,"Carrier")
         {
         }
-        public void Feature(Table table)
+        public void Feature(Table table, int line, int rotate)
         { 
-            Console.WriteLine("Line to shoot at:");
-            int line = int.Parse(Console.ReadLine());
+           
 
             for (int i = 0; i < 15; i++)
             {
