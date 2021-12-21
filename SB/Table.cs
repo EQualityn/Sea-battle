@@ -19,9 +19,9 @@ namespace SB
         public int[,] table;
         public List<Ship> ships = new List<Ship>();
         public bool shootAgain = false;
-        public bool t = true;
+        public bool isDead = true;
         // Создаем конструкторы матрицы
-        
+
 
 
         // Задаем аксессоры для работы с полями вне класса Matrix
@@ -139,7 +139,7 @@ namespace SB
                 }
             }
 
-            string json = JsonConvert.SerializeObject(table);
+            string json = JsonConvert.SerializeObject(ships);
             File.WriteAllText(@"autodisposal.json", json);
 
         }
@@ -378,12 +378,11 @@ namespace SB
                         ship.Alivecells--;
                         //ship.isHit = true;
                         shootAgain = true;
-                        t = false;
+                        isDead = false;
 
                         if (ship.Alivecells == 0)
                         {
-                            ship.isSunk = true;
-                            t = true;
+                            isDead = true;
                             Zone(ship.Id, ship.Cells, ref ship.Rotation, table , ship.X_coord, ship.Y_coord);
                             break;
                         }

@@ -17,8 +17,6 @@ namespace SB
         public int Y_coord;
         public bool Rotation = true;
         public string Picture;
-        public bool isHit = false;
-        public bool isSunk;
         public int Cells;
         public bool featureRealised = false;
       public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   

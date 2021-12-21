@@ -31,7 +31,7 @@ namespace SB
                     table.ChooseFeature(key);
                     do
                     {
-                      
+
                         x = rnd.Next(0, 14);
                         y = rnd.Next(0, 14);
                         table.Shoot(x, y);
@@ -51,7 +51,7 @@ namespace SB
                     key = rnd.Next(0, 14);
                     table.ChooseFeature(key);
 
-                    if (table.t) // если корабль убит, то заходим
+                    if (table.isDead) // если корабль убит, то заходим
                     {
                         x = rnd.Next(0, 14);
                         y = rnd.Next(0, 14);
@@ -65,7 +65,8 @@ namespace SB
                     {
                         x = x_hit;
                         y = y_hit;
-                        table.t = false;
+                        table.shootAgain = true;
+                        table.isDead = false;
                     }
 
                     Console.WriteLine($"Engine shot at {x}, {y}");
@@ -80,45 +81,48 @@ namespace SB
                         y_hit = y;
                         if (x_hit < 15 && right)
                         {
-                            for (int i = 0; ; i++)
+                            int i = 1;
+                            do
                             {
                                 table.Shoot(x + i, y);
-                                if (!table.shootAgain && x + i < 15)
+                                if (!table.shootAgain)
                                 {
                                     right = false;
                                     left = true;
-                                    table.t = true;
                                     break;
                                 }
-                            }
+                                i++;
+                            } while (x + i < 15);
                         }
                         if (y_hit < 15 && down)
                         {
-                            for (int i = 0; ; i++)
+                            int i = 1;
+                            do
                             {
                                 table.Shoot(x, y + i);
-                                if (!table.shootAgain && y + i < 15)
+                                if (!table.shootAgain)
                                 {
                                     down = false;
                                     right = true;
-                                    table.t = true;
                                     break;
                                 }
-                            }
+                                i++;
+                            } while (y + i < 15);
                         }
                         if (y_hit > 0 && up)
                         {
-                            for (int i = 0; ; i++)
+                            int i = 1;
+                            do
                             {
                                 table.Shoot(x, y - i);
-                                if (!table.shootAgain && y - i > 0)
+                                if (!table.shootAgain)
                                 {
                                     up = false;
                                     down = true;
-                                    table.t = true;
                                     break;
                                 }
-                            }
+                                i++;
+                            } while (y - i > 0);
                         }
                         if (x_hit > 0 && left)
                         {
@@ -126,15 +130,14 @@ namespace SB
                             do
                             {
                                 table.Shoot(x - i, y);
-                                if (!table.shootAgain && x - i > 0)
+                                if (!table.shootAgain)
                                 {
                                     left = false;
                                     up = true;
-                                    table.t = true;
                                     break;
                                 }
                                 i++;
-                            } while (true);
+                            } while (x - i > 0);
                         }
 
                         Console.WriteLine($"Engine shot at {x}, {y}");

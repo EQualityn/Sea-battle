@@ -8,7 +8,7 @@ namespace SB
 {
     public class Battle
     {
-        Player player = new Player();
+        BasePlayer player = new Player();
         AIEngine engine = new AIEngine();
 
         
