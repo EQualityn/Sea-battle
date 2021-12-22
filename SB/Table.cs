@@ -52,7 +52,10 @@ namespace SB
                 Console.WriteLine("");
             }
         }
-
+        public void DecodeField(string decodedShips)
+        {
+            Console.WriteLine(decodedShips);
+        }
         public bool CheckAlive()
         {
 

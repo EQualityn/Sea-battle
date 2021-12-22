@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,10 @@ namespace SB
        public Battle() { }
         public void BattleInit ()
         {
-            player.table.AutoDisposal();
+
+            player.table.DecodeField(Arrangments.Battle);
+
+           // player.table.AutoDisposal();
             engine.table.AutoDisposal();
             //Console.WriteLine("Player's table");
             //player.table.ShowTable();
