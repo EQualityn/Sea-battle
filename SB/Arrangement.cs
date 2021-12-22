@@ -23,8 +23,9 @@ namespace DAL
 { "Name":"Battleship","Rotation":false,"X_coo":5,"Y_coo":7},
 { "Name":"Battleship","Rotation":false,"X_coo":12,"Y_coo":5},
 { "Name":"Carrier","Rotation":false,"X_coo":10,"Y_coo":7},
-{ "Name":"Bunker","Rotation":true,"X_coo":13,"Y_coo":13}]} ";
-    //https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to?pivots=dotnet-core-3-1 внизу пример наш
+{ "Name":"Bunker","Rotation":true,"X_coo":13,"Y_coo":13}]} ;
+    //https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to?pivots=dotnet-core-3-1 внизу пример наш, но по-хорошему так
+    // как расстановка привязана к конкретному игроку, то и класс должен быть не статическим, а принадлежащим классу либо Player либо Person.
         public string SaveArrangments { get; set; }
     }
 }
