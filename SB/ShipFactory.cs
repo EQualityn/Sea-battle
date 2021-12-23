@@ -14,7 +14,7 @@ namespace SB
         public ShipFactory()
         { }
         // фабричный метод
-        abstract public Ship Create(int Id, bool Rotation, int X_coord, int Y_coord);
+        abstract public Ship Create(int Id, bool Rotation, int X_coo, int Y_coo);
     }
 
     class Ship1Factory : ShipFactory

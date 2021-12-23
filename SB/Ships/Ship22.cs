@@ -9,7 +9,7 @@ namespace SB.Ships
 {
     public class Ship22 : Ship, IFeaturable
     {
-        public Ship22( int Id, bool Rotation, int X_coord, int Y_coord) : base(Id, Rotation, X_coord, Y_coord, "Bunker")
+        public Ship22( int Id, bool Rotation, int X_coo, int Y_coo) : base(Id, Rotation, X_coo, Y_coo, "Bunker")
         {
         }
         public void Feature(Table table, int x, int y)

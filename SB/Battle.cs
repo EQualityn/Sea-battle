@@ -18,7 +18,6 @@ namespace SB
         {
 
             player.table.DecodeField(Arrangments.Battle);
-
            // player.table.AutoDisposal();
             engine.table.AutoDisposal();
             //Console.WriteLine("Player's table");

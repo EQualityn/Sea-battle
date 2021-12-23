@@ -11,24 +11,24 @@ namespace SB
     public abstract class Ship
     {
         public int Id;
-        public string Name;
+        public string Type;
         public int Alivecells;
-        public int X_coord;
-        public int Y_coord;
+        public int X_coo;
+        public int Y_coo;
         public bool Rotation = true;
         public string Picture;
         public int Cells;
         public bool featureRealised = false;
-      public  Ship (int id, bool rotation, int x_coord, int y_coord, string name)   
+      public  Ship (int id, bool rotation, int x_coo, int y_coo, string type)   
         {
             this.Id = id;
             this.Rotation = rotation;
-            this.X_coord = x_coord;
-            this.Y_coord = y_coord;
-            this.Name = name;
-            this.Alivecells = ShipAliveCells(name);
-            this.Picture = ShipPicture(name);
-            this.Cells = ShipAliveCells(name);
+            this.X_coo = x_coo;
+            this.Y_coo = y_coo;
+            this.Type = type;
+            this.Alivecells = ShipAliveCells(type);
+            this.Picture = ShipPicture(type);
+            this.Cells = ShipAliveCells(type);
         }
       
         public int ShipAliveCells(string Name)
