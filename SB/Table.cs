@@ -425,7 +425,37 @@ namespace SB
                 table[y, x] = -2;
                 shootAgain = false;
             }
+            var frame = new StackFrame(1);
+            if (frame.GetMethod().DeclaringType.Name == "Player")
+            {
+                int[,] playerShots = fillTableForFront();
+                GlobalVariablesForGame.enemyFieldShot = playerShots;
+            }
+            else
+            {
+                int[,] engineShots = fillTableForFront();
+                GlobalVariablesForGame.myFieldShot = engineShots;
+                Console.WriteLine(engineShots[0,0]);
+            }
 
+        }
+        public int[,] fillTableForFront()
+        {
+            int[,] toFront = new int[225, 2];
+            int k=0;
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (table[i, j] < 0)
+                    {
+                        toFront[k, 0] = j+1;
+                        toFront[k, 1] = i+1;
+                        k++;
+                    }
+                }
+            }
+            return toFront;
         }
 
     }

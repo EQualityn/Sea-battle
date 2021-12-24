@@ -47,7 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arrangement.cs" />
+    <Compile Include="Arrangements.cs" />
+    <Compile Include="GlobalVariablesForGame.cs" />
     <Compile Include="IFeaturable.cs" />
     <Compile Include="Players\AIEngine.cs" />
     <Compile Include="Players\BasePlayer.cs" />

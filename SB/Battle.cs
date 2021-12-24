@@ -67,6 +67,8 @@ namespace SB
                 turns--;
                 
             }
+            Console.WriteLine(GlobalVariablesForGame.myFieldShot);
+            Console.WriteLine(GlobalVariablesForGame.enemyFieldShot);
 
             //}
         }

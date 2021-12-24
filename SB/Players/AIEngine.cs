@@ -20,6 +20,7 @@ namespace SB
 
         public override void Turn(string difficulty)
         {
+            GlobalVariablesForGame.Turn = false;
             Random rnd = new Random();
             int x, y, key;
 

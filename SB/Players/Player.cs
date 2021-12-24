@@ -17,7 +17,7 @@ namespace SB
        //ShootStrategy = Turn()
         public override void Turn(string difficultyMode)
         {
-
+            GlobalVariablesForGame.Turn = true;
             do
             {
                 Console.WriteLine("Enter key for player's feature");
